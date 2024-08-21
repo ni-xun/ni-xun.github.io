@@ -1,67 +1,174 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>表演历程</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="logo-container">
-      <img src="https://www.ncwu.edu.cn/dfiles/11373/images2015/logo_03.jpg" alt="Logo">
-      <h1>黄河泥埙社</h1>
-    </div>
-  </header>
+/* Basic reset and font setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-  <div class="container">
-    <div class="card" draggable="true">
-      <div class="content">
-        <h2>2024年6月24日📰</h2>
-        <p>中华民族一家亲!华水美育通识课的视听盛宴！</p>
-        <a href="https://mp.weixin.qq.com/s/JfJgSy-AHmuzLYoEml57pA" target="_blank">查看</a>
-      </div>
-    </div>
-    <div class="card" draggable="true">
-      <div class="content">
-        <h2>2023年9月12日📰</h2>
-        <p>德国青年华水行，来看这场两国青年的文化碰撞！</p>
-        <a href="https://mp.weixin.qq.com/s/rs8hW5FhXQ51S_emwI4vCQ" target="_blank">查看</a>
-      </div>
-    </div>
-    <div class="card" draggable="true">
-      <div class="content">
-        <h2>2023年6月15日 📰</h2>
-        <p>2023届毕业晚会：“灼灼芳华，奋楫致远”</p>
-        <a href="https://mp.weixin.qq.com/s/Eqt9CC_fLim1uJApQpy7aA" target="_blank">查看</a>
-      </div>
-    </div>
-    <div class="card" draggable="true">
-      <div class="content">
-        <h2> 2022年9月6日 📰</h2>
-        <p>黄河泥埙参展第九届“博博会”——新时代的博物馆</p>
-        <a href="https://mp.weixin.qq.com/s/_72Sgp-O80ltUw8p3fDZbw" target="_blank">查看</a>
-      </div>
-    </div>
-    <!-- 更多链接 -->
-  </div>
+body {
+  background: linear-gradient(0deg, #fff 50%, #2196f3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cards = document.querySelectorAll('.card');
+/* Logo and header styling */
+header {
+  width: 100%;
+  padding: 10px 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-      cards.forEach(card => {
-        card.addEventListener('dragstart', function() {
-          this.classList.add('dragging');
-        });
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-        card.addEventListener('dragend', function() {
-          this.classList.remove('dragging');
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+.logo-container img {
+  max-height: 60px;
+  margin-right: 10px;
+}
+
+.logo-container h1 {
+  font-family: 'Zhi Mang Xing', cursive;
+  color: rgb(157, 91, 66);
+  font-size: 2em;
+  white-space: nowrap;
+}
+
+/* Container and card styles */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* 拖动卡片的动画 */
+@keyframes drag {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* 定义卡片在拖动时的效果 */
+.card.dragging {
+  animation: drag 0.5s ease-in-out;
+  cursor: grabbing;
+  opacity: 0.8;
+}
+
+.content h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content h2::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+}
+
+.content p {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.content a {
+  display: inline-block;
+   padding: 10px 20px;
+  background: #2196f3;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.content a:hover {
+  background: #0b79d0;
+}
+
+/* Ensure responsiveness and layout changes based on screen size */
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Responsive adjustments for logo and title */
+@media (max-width: 600px) {
+  .logo-container img, .logo-container h1 {
+    max-width: 80%;
+    max-height: 80%;
+  }
+}
+
+
+/* 现有样式保持不变 */
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column; /* 使 Logo 和标题垂直排列 */
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-container {
+        flex-direction: column; /* 使 Logo 和标题在容器内垂直排列 */
+    }
+
+    .logo-container img {
+        margin-bottom: 15px; /* 给 Logo 和标题之间增加一些间距 */
+        margin-right: 0; /* 去除横向排列时的右边距 */
+    }
+
+    .logo-container h1 {
+        font-size: 36px; /* 适当调整字体大小 */
+    }
+}
+
+
+
+
