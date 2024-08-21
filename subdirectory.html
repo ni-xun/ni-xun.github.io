@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表演历程</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="https://www.ncwu.edu.cn/dfiles/11373/images2015/logo_03.jpg" alt="Logo">
+      <h1>黄河泥埙社</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card" draggable="true">
+      <div class="content">
+        <h2>公众号文章 📰</h2>
+        <p>表演文章链接 1</p>
+        <a href="https://mp.weixin.qq.com/s/sample1" target="_blank">查看</a>
+      </div>
+    </div>
+    <div class="card" draggable="true">
+      <div class="content">
+        <h2>公众号文章 📰</h2>
+        <p>表演文章链接 2</p>
+        <a href="https://mp.weixin.qq.com/s/sample2" target="_blank">查看</a>
+      </div>
+    </div>
+    <div class="card" draggable="true">
+      <div class="content">
+        <h2>公众号文章 📰</h2>
+        <p>表演文章链接 3</p>
+        <a href="https://mp.weixin.qq.com/s/sample3" target="_blank">查看</a>
+      </div>
+    </div>
+    <!-- 更多链接 -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        card.addEventListener('dragstart', function() {
+          this.classList.add('dragging');
+        });
+
+        card.addEventListener('dragend', function() {
+          this.classList.remove('dragging');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

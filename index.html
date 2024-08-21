@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黄河泥埙社</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="https://www.ncwu.edu.cn/dfiles/11373/images2015/logo_03.jpg" alt="Logo">
+      <h1>黄河泥埙社</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card" draggable="true">
+      <div class="content">
+        <h2>文件预览 📄</h2>
+        <p>查看完整的社团文件列表预览，方便快速浏览。</p>
+        <a href="https://m.2701.fun:2222/Guest/Aliyun/%E9%BB%84%E6%B2%B3%E6%B3%A5%E5%9F%99%E7%A4%BE" target="_blank">前往文件预览</a>
+      </div>
+    </div>
+    <div class="card" draggable="true">
+      <div class="content">
+        <h2>打包下载 📦</h2>
+        <p>一键下载完整的文件压缩包，所有资料尽在掌握。</p>
+        <a href="https://m.2701.fun:2222/d/Guest/Aliyun/%E9%BB%84%E6%B2%B3%E6%B3%A5%E5%9F%99%E7%A4%BE/%E9%BB%84%E6%B2%B3%E6%B3%A5%E5%9F%99%E7%A4%BE.zip?sign=J8EmC4rWk8ml-pwOpjmGYZt1cd6lswC2e2cUpHzRyuY=:0" target="_blank">立即下载</a>
+      </div>
+    </div>
+    <div class="card" draggable="true">
+      <div class="content">
+        <h2>日常工作 📋</h2>
+        <p>在线编辑社团文件，实时协作，轻松高效。</p>
+        <a href="https://docs.qq.com/s/PTuYb8fEqdkrSHw23cO6jq" target="_blank">前往编辑</a>
+      </div>
+    </div>
+    <div class="card" draggable="true">
+      <div class="content">
+        <h2>表演历程 🎭</h2>
+        <p>查看表演历程和相关公众号文章，感受文化魅力。</p>
+        <a href="subdirectory.html" target="_blank">查看表演历程</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        card.addEventListener('dragstart', function() {
+          this.classList.add('dragging');
+        });
+
+        card.addEventListener('dragend', function() {
+          this.classList.remove('dragging');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
